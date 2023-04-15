@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1 class="navbar-title">PDF Analyzer</h1>
+    <ul class="navbar-menu">
+      <li><a href="#" class="navbar-menu-item">Home</a></li>
+      <li><a href="#" class="navbar-menu-item">About</a></li>
+      <li><a href="#" class="navbar-menu-item">Contact</a></li>
+    </ul>
+    <div class="menu-toggle">&#9776;</div>
+  </div>
+  
+  <!-- Content container -->
+  <div class="container">
+    <h2 class="container-title">Upload a PDF file</h2>
+    <form action="/" method="post" enctype="multipart/form-data" class="container-form">
+      <input type="file" name="file" id="file" class="input input-file" accept=".pdf">
+      <div>
+      <input type="text" name="query" placeholder="Enter your question you want ask" class="input input-query"><br><br>
+      </div>
+      <input type="submit" value="Submit" class="button button-submit">
+    </form>
+    {% if result %}
+      <h2 class="container-result-title">Result</h2>
+      <p class="container-result">{{ result }}</p>
+    {% endif %}
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer">
+    <p class="footer-text">PDF Analyzer &copy; 2023. All rights reserved.</p>
+  </div>
+</body>
+</html>
